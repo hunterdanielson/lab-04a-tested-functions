@@ -122,3 +122,46 @@ test('getEvenNumbers', function(assert) {
     //assert
     assert.deepEqual(numbers, expected);
 });
+
+
+//stretch goal fizzBuzz
+function divBy3(x) {
+    if(x % 3 === 0) {
+        return true;
+    } else return false;
+}
+function divBy5(x) {
+    if(x % 5 === 0) {
+        return true;
+    } else return false;
+}
+
+
+function fizzBuzz(upTo) {
+    const array = [];
+    for(let i = 1; i < upTo; i++) {
+        if(divBy3(i) !== true && divBy5(i) !== true) {
+            array.push(i);
+        } else if(divBy3(i) === true && divBy5(i) === true) {
+            array.push('fizzbuzz');
+        } else if(divBy3(i) === true) {
+            array.push('fizz');
+        } else if(divBy5(i) === true) {
+            array.push('buzz');
+        }
+
+    }
+    return array;
+}
+
+test('fizzBuzz', function(assert) {
+    // arrange
+    const upTo = 16;
+    const expected = [1, 2, 'fizz', 4, 'buzz', 'fizz', 7, 8, 'fizz', 'buzz', 11, 'fizz', 13, 14, 'fizzbuzz'];
+
+    // act
+    const array = fizzBuzz(upTo);
+
+    //assert
+    assert.deepEqual(array, expected);
+});
